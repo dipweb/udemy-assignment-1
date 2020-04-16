@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserOutput from "./UserOutput/UserOutput";
+import UserInput from "./UserInput/UserInput";
 import "./App.css";
 
 class App extends Component {
@@ -7,11 +8,18 @@ class App extends Component {
     userName: "dipweb"
   };
 
+  eventHandler = event => {
+    this.setState({
+      userName:event.target.value
+    })
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Assignment - 1</h1>
         <hr />
+        <UserInput changed={this.eventHandler} />
         <UserOutput userName={this.state.userName} />
         <UserOutput userName={this.state.userName} />
         <UserOutput userName={this.state.userName} />
